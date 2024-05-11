@@ -1,11 +1,10 @@
-import { Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Title, Badge} from "@tremor/react"
+import { Badge, Card, Table, TableBody, TableCell, TableHead, TableHeaderCell, TableRow, Title } from "@tremor/react"
+import { useSelector } from "react-redux"
+import { selectUsers } from "./store"
+
 
 function App() {
-  const users: {id:number, name:string, email:string}[] = [
-    {id:1, name:"andres", email:"andres@gmail.com"},
-    {id:2, name:"casa", email:"andres@gmail.com"},
-  ]
-
+  const users = useSelector(selectUsers)
   return (
     <Card className="m-12">
       <Title>
