@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-export default createSlice({
+const usersSlice = createSlice({
   name: "users",
   initialState: [
     {id:1, name:"andres", email:"andres@gmail.com"},
@@ -8,6 +8,12 @@ export default createSlice({
     {id:3, name:"casa", email:"andres@gmail.com"},
     {id:4, name:"casa", email:"andres@gmail.com"},
     ],
-  reducers: {}
+  reducers: {
+    deleteUser: (state, action: PayloadAction<number>) => {
+      return state.filter(user => user.id !== action.payload)
+    }
+  }
 })
 
+export const {deleteUser} = usersSlice.actions //exposing what actions can be dispatched
+export default usersSlice
