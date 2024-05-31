@@ -9,11 +9,11 @@ const usersSlice = createSlice({
     {id:4, name:"casa", email:"andres@gmail.com"},
     ],
   reducers: {
-    deleteUser: (state, action: PayloadAction<number>) => {
+    deleteUserStore: (state, action: PayloadAction<number>) => {
       return state.filter(user => user.id !== action.payload)
     }
   }
 })
 
-export const {deleteUser} = usersSlice.actions //exposing what actions can be dispatched
+export const {deleteUserStore} = usersSlice.actions //exposing what actions can be dispatched
 export default usersSlice
